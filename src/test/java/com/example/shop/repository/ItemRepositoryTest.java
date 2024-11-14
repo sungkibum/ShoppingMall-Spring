@@ -68,4 +68,24 @@ class ItemRepositoryTest {
 
 
     }
+
+    @Test
+    @DisplayName("OR 테스트")
+    public void findByItemNmOrItemDetail() {
+        createItemList();
+        List<Item> itemList = itemRepository.findByItemNmOrItemDetail("테스트 상품2", "테스트 상품 상세 설명8");
+        itemList.forEach(item -> {
+            System.out.println(item);
+        });
+    }
+
+    @Test
+    @DisplayName("OrderBy 테스트")
+    public void findByPriceLessThanOrderByPriceDesc() {
+        createItemList();
+        List<Item> itemList = itemRepository.findByPriceLessThanOrderByPriceDesc(10005);
+        itemList.forEach(item -> {
+            System.out.println(item);
+        });
+    }
 }
